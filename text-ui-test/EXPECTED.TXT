@@ -1,10 +1,108 @@
-
-Welcome to
-    ____  __      _   ____  _______
+[33mWelcome to
+[36m    ____  __      _   ____  _______
    / __ \/ /___ _/ | / / / / / ___/
   / /_/ / / __ `/  |/ / / / /\__ \ 
  / ____/ / /_/ / /|  / /_/ /___/ / 
-/_/   /_/\__,_/_/ |_/\____//____/  v1.0
+/_/   /_/\__,_/_/ |_/\____//____/  v1.0[0m
 
+List of available commands:
+Note: 
+1. Square bracket input is optional.
+- help: show list of available commands
+format: [35mhelp[0m
+- add: add a task
+format: [35madd DESCRIPTION [d/dd-MM-yyyy] [st/HHmm] [et/HHmm] [p/NUMBER][0m
+- edit: edit a task
+format: [35medit INDEX [des/DESCRIPTION] [d/dd-MM-yyyy] [st/HHmm] [et/HHmm] [p/NUMBER][0m
+- list: show list of tasks
+format: [35mlist[0m
+- search: find task(s) with keyword in description
+format: [35msearch KEYWORD(S)[0m
+- delete remove particular task by index
+format: [35mdelete INDEX[0m
+- clear: remove all tasks
+format: [35mclear[0m
+- bye: exit the program
+format: [35mbye[0m
+
+Here is your list of tasks:
+Index     Description    Date           Start     End       Priority  
+
+Invalid command!
+
+Invalid command!
+
+Invalid command!
+
+Invalid command!
+
+Invalid command!
+
+Task added.
+Index     Description    Date           Start     End       Priority  
+7750      meeting        2020-10-20                         [32mLOW[0m
+
+Task added.
+Index     Description    Date           Start     End       Priority  
+6032      any field      2020-10-22     20:00               [33mMEDIUM[0m
+7750      meeting        2020-10-20                         [32mLOW[0m
+
+Task added.
+Index     Description    Date           Start     End       Priority  
+110       test           2020-11-28     14:00     16:00     [31mHIGH[0m
+6032      any field      2020-10-22     20:00               [33mMEDIUM[0m
+7750      meeting        2020-10-20                         [32mLOW[0m
+
+Here is your list of tasks:
+Index     Description    Date           Start     End       Priority  
+110       test           2020-11-28     14:00     16:00     [31mHIGH[0m
+6032      any field      2020-10-22     20:00               [33mMEDIUM[0m
+7750      meeting        2020-10-20                         [32mLOW[0m
+
+Unknown command!
+
+No matched item found.
+
+Here is your list of tasks which contain the word/letters:
+Index     Description    Date           Start     End       Priority  
+110       test           2020-11-28     14:00     16:00     [31mHIGH[0m
+7750      meeting        2020-10-20                         [32mLOW[0m
+
+Invalid command!
+
+Invalid task number!
+
+Invalid task number!
+
+Invalid task number!
+
+Invalid task number!
+
+Here is your list of tasks:
+Index     Description    Date           Start     End       Priority  
+110       test           2020-11-28     14:00     16:00     [31mHIGH[0m
+6032      any field      2020-10-22     20:00               [33mMEDIUM[0m
+7750      meeting        2020-10-20                         [32mLOW[0m
+
+Invalid command!
+
+Invalid task number!
+
+Invalid task number!
+
+Invalid task number!
+
+Invalid task number!
+
+Here is your list of tasks:
+Index     Description    Date           Start     End       Priority  
+110       test           2020-11-28     14:00     16:00     [31mHIGH[0m
+6032      any field      2020-10-22     20:00               [33mMEDIUM[0m
+7750      meeting        2020-10-20                         [32mLOW[0m
+
+All tasks cleared.
+
+Here is your list of tasks:
+Index     Description    Date           Start     End       Priority  
 
 Bye! See you again!

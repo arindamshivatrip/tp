@@ -1,0 +1,16 @@
+@startuml
+!include Components.puml
+
+User --> Ui
+
+Main --> Ui
+Main --> Logic
+Main --> Storage
+Main --> TaskMap
+
+Logic --> Ui
+Logic --> TaskMap
+
+Storage --> data
+
+@enduml

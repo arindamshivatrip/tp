@@ -1,0 +1,42 @@
+@startuml
+
+class Ui
+class InputStream
+class OutputStream
+
+skinparam classAttributeIconSize 0
+abstract class DisplayDateStructure {
+    #{field}screen: char[][]
+    +{method} getScreen: char[][]
+    #{method}{abstract} generateScreen(TaskMap)
+}
+
+class WeekStructure {
+    -{static}{field} DISPLAY_HEIGHT: int=11
+    #{method} generateScreen(TaskMap)
+    -{method} generateScreenBorder()
+
+}
+
+class MonthStructure {
+    -{static}{field} DISPLAY_HEIGHT: int=51
+    -{static}{field} ROW_NUM_OFFSET: int=2
+    #{method} generateScreen(TaskMap)
+    -{method} generateScreenBorder()
+}
+
+enum DisplayMode {
+    ALL
+    WEEK
+    MONTH
+}
+
+InputStream "1"-"1" Ui
+Ui "1"-"1" OutputStream
+Ui "1"--"1" DisplayDateStructure
+DisplayDateStructure -[dashed]-> DisplayMode
+DisplayDateStructure <|-- WeekStructure
+DisplayDateStructure <|-- MonthStructure
+
+
+@enduml

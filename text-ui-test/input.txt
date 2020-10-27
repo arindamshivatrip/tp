@@ -1,1 +1,29 @@
+help
+list
+add
+add    d/20-10-2020
+add	st/2000
+add  et/2000
+add p/3
+add meeting d/20-10-2020
+add any field d/22-10-2020 st/2000 p/2
+add test d/28-11-2020 st/1400 et/1600 p/3
+list
+find
+search reading
+search t
+delete -1
+delete 813021893218302138219083291830218
+delete 0
+delete 10
+delete 1
+list
+edit -1
+edit 327187837128372897312321321
+edit 0
+edit 10
+edit 1 des/changed d/20-10-2020 et/2200
+list
+clear
+list
 bye

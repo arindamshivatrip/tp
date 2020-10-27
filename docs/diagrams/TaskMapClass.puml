@@ -1,0 +1,58 @@
+@startuml
+
+skinparam classAttributeIconSize 0
+class TaskMap {
+    +{static}{field} MAX_NUM_TASKS: int=10000
+    +{method} addTask(Task)
+    +{method} get(Integer): Task
+    +{method} getValues(): Collection<Task>
+    +{method} delete(Integer)
+    +{method} clear()
+    +{method} sortByDate(): TaskMap
+    +{method} sortByPriority(): TaskMap
+    +{method} searchByDescription(String): TaskMap
+    +{method} searchByDate(LocalDate): TaskMap
+}
+
+class LinkedHashMap<Integer, Task>
+
+LinkedHashMap "1"-"1" TaskMap
+TaskMap o--"0..*" Task
+TaskMap -[dashed]-> Comparator
+
+
+
+class Task {
+    -{static}{field} HASH_VALUE_DIGITS: int=4
+    -{field} taskID: Integer
+    -{field} description: String
+}
+
+enum Priority {
+    {field}LOW(1, "LOW", ANSI_GREEN)
+    {field}MEDIUM(2, "MEDIUM", ANSI_YELLOW)
+    {field}HIGH(3, "HIGH", ANSI_RED)
+}
+
+class LocalDate
+class LocalTime
+
+LocalDate "1"--"1" Task: date
+Task "1"-"1" Priority: priority
+Task --"0..2" LocalTime: startTime/endTime
+
+
+
+
+interface Comparator<Task>
+class DateSorter {
+    +{method} compare(Task, Task): int
+}
+class PrioritySorter {
+    +{method} compare(Task, Task): int
+}
+
+Comparator <|-[dashed]- DateSorter
+Comparator <|-[dashed]- PrioritySorter
+
+@enduml

@@ -1,0 +1,12 @@
+@startuml
+actor User
+component Ui
+component Commons
+rectangle Main
+collections TaskMap
+component Logic
+storage Storage
+folder data {
+    file data.json
+}
+@enduml

@@ -1,0 +1,65 @@
+@startuml
+
+skinparam classAttributeIconSize 0
+
+class Parser {
+    +{method} processRaw(String): Command
+}
+abstract class Command {
+    +{abstract}{method} execute(TaskMap): CommandResult
+}
+class Add {
+    +{field} commandWord: String
+    +{field} commandPattern: Pattern
+    +{method} execute(TaskMap): CommandResult
+}
+class Bye {
+    +{field} commandWord: String
+    +{field} commandPattern: Pattern
+    +{method} execute(TaskMap): CommandResult
+}
+class Clear {
+    +{field} commandWord: String
+    +{field} commandPattern: Pattern
+    +{method} execute(TaskMap): CommandResult
+}
+class Delete {
+    +{field} commandWord: String
+    +{field} commandPattern: Pattern
+    +{method} execute(TaskMap): CommandResult
+}
+class Edit {
+    +{field} commandWord: String
+    +{field} commandPattern: Pattern
+    +{method} execute(TaskMap): CommandResult
+}
+class Help {
+    +{field} commandWord: String
+    +{field} commandPattern: Pattern
+    +{method} execute(TaskMap): CommandResult
+}
+class List {
+    +{field} commandWord: String
+    +{field} commandPattern: Pattern
+    +{method} execute(TaskMap): CommandResult
+}
+class Search {
+    +{field} commandWord: String
+    +{field} commandPattern: Pattern
+    +{method} execute(TaskMap): CommandResult
+}
+class CommandResult
+
+Command -[dashed]> CommandResult
+Command -[dashed]> TaskMap
+Parser -[dashed]> Command
+
+Command <|-- Add
+Command <|-- Bye
+Command <|--- Clear
+Command <|--- Delete
+Command <|--- Edit
+Command <|--- Help
+Command <|-- List
+Command <|-- Search
+@enduml

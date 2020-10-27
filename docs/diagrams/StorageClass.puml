@@ -1,0 +1,29 @@
+@startuml
+
+
+skinparam classAttributeIconSize 0
+class Storage {
+   -{static}{field} DIRECTORY_NAME: String="data"
+   -{static}{field} FILE_NAME: String="data.json"
+   +{method} loadTasks(TaskMap)
+   +{method} writeTasksToFile(TaskMap)
+   -{method} createDirectory(): Boolean
+   -{method} readTasksFromFile(TaskMap)
+}
+
+class Gson {
+    +{method} toJson(Task):String
+    +{method} fromJson(String, Type): Task
+}
+class File
+class FileWriter
+class TaskMap
+class Task
+
+Storage "1"-"1" Gson
+Storage -[dashed]-> File
+Storage -[dashed]-> FileWriter
+Storage -[dashed]-> TaskMap
+Storage -[dashed]-> Task
+
+@enduml
