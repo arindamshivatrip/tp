@@ -81,7 +81,7 @@ the 2-D array of characters for weekly and monthly view. After that,
 the array will be shown to the user by Ui class via the OutputStream. 
 
 Moreover, DayStructure, WeekStructure and MonthStructure extends the DisplayDateStructure.
-DayStructure generate content in tableformat while the other two class will generate 
+DayStructure generate content in table format while the other two class will generate 
 a different size of the 2-D array mentioned in the previous paragraph 
 due the difference in number of days displayed.
 
@@ -105,7 +105,7 @@ respective content will be displayed to User based on the CommandResult.
 
 
 Task class consists of attributes like description, date, start time, end time,
-priority that are important to users. Whereas other attributes like 
+priority, and reminder that are important to users. Whereas other attributes like 
 HASH_VALUE_DIGITS, taskID and internal values of Priority enum class matters
 more to developers. For example, the HASH_VALUE_DIGITS and the color code of 
 Priority could affect the content displayed to User, and the reason why the
@@ -122,6 +122,12 @@ unique identifier (Integer). Another reason of using LinkedHashMap is because
 it is ordered, this allows the container to be sorted. DateSorter and 
 PrioritySorter implements the Task comparator, they are used in the TaskMap
 functions sortListByDate() and sortListByPriority().
+
+Reminder is a class that consists of a class of timer and localtime, as each 
+reminder needs to have its own timer. The timer is created when a reminder 
+is started, and cancelled when the reminder is turned off. As such, having
+individual timers for each task is important so that they will not interfere
+with one another.
 
 
 ### Storage component
@@ -197,7 +203,9 @@ Priority is set to low
    - 1c. User adds task without start and end time  
 Time is set to empty  
    - 1d. User inputs wrong details format  
-PLANus shows invalid command message  
+PLANus shows invalid command message
+   - 1e. User add tasks without any input for 
+   reminder. Reminder is set to off.
 
 
 ### Use case: List task
@@ -293,7 +301,15 @@ Use case ends.
 
 ## Glossary
 
+    - JSON: (JavaScript Object Notation) is a lightweight data-interchange format, and a standard text-based format 
+            used for representing structured data based on JavaScript object syntax.
+    
+    - LinkedHashMap: is a Hash table and linked list implementation of the Map interface, with predictable  
+                     iteration order. This implementation differs from HashMap in that it maintains a doubly-linked list running  
+                     through all of its entries. 
 
+
+<!-- @@author mhchan163 -->
 ## Instructions for manual testing
 
 ### Launch and Shutdown
@@ -330,7 +346,7 @@ Use case ends.
     Expected: homework task should be added to the list with date set as 25-12-2020 
     and start time 19:00 and end time 20:00.
 
-    - Test case: add homework d/25-12-2020 st/1900 et/2500
+    - Test case: add homework d/25-12-2020 st/1900 et/2500  
     Expected: Since there is only 24 hours in a day, the task is not added to the list, 
     and an error message is shown.
 
@@ -344,7 +360,23 @@ Use case ends.
     - Test case: add homework d/25-12-2020 st/1900 et/2000 p/4  
     Expected:  Since the highest priority is HIGH, the task is not added to the list, 
     and an error message is shown.
-
+  
+ 5. Add a task into the lists using add command with description, date, start 
+    and end times and priority and set a reminder.
+    
+    - Test case: add homework d/25-12-2020 st/1900 et/2000 p/3 r/on  
+    Expected: homework task should be added to the list with date set as 25-12-2020 
+    and start time 19:00 and end time 20:00, with a HIGH priority and reminder set to "Yes".
+    
+    - Test case: add homework d/25-12-2020 st/1900 et/2000 p/3 r/to  
+    Expected: Since "to" is not a valid reminder command, the task is not added to the list,
+    and an error message is shown.
+    
+    - Test case: add homework d/25-12-2020 st/1900 et/2000 p/3 r/off  
+    Expected: homework task should be added to the list with date set as 25-12-2020 
+    and start time 19:00 and end time 20:00, with a HIGH priority and reminder set to "No".
+    
+        
 ### Deleting a task
 
 Prerequisites: Add some tasks to the list. List all tasks using the list command. 
@@ -355,7 +387,7 @@ All indexes are less than or equal to four-digit numbers.
     - Test case: delete 3542  
     Expected: Task with the index of 3542 is deleted from the list. 
 
-    - Test case: delete 12378
+    - Test case: delete 12378  
     Expected: No task is deleted, and an Invalid index error is shown.
 
 ### Editing a task
@@ -374,18 +406,39 @@ All indexes are less than or equal to four-digit numbers.
     - Test case: edit 3542 d/21-10-2020  
     Expected: The task with index 3542 will have its date changed to “21-10-2020” 
     while the other components will remain the same.
+    
+    - Test case: edit 3542 d/22-13-2020  
+    Expected: Since there is no 13th month, the task with index 3542 will not be edited, and an error message is shown. 
 
 3. Editing the start and end time of a task
 
     - Test case: edit 3542 st/1500 et/1600  
     Expected: The task with index 3542 will have its start time changed to 15:00 
     and end time changed to 16:00  while the other components will remain the same.
+    
+    - Test case: edit 3542 st/1500 et/2500  
+    Expected: Since "2500" is not a valid time input, the task with index 3542 will not be edited, 
+    and an error message is shown. 
 
 4. Editing the priority of a task
 
     - Test case: edit 3542 p/3  
     Expected: The task with index 3542 will have its priority changed to “HIGH” 
     while the other components will remain the same.
+    
+    - Test case: edit 3542 p/4  
+    Expected: Since 4 does not correspond to a not a valid priority, the task with index 3542 will not be edited,
+    and an error message is shown. 
+    
+5. Editing the reminder of a task
+    
+    - Test case: edit 3542 r/on t-2000  
+    Expected: The task with index 3542 will have it reminder set to "Yes" and a reminder
+    prompt will given at time 20:00 while the other components will remain the same.
+    
+    - Test case: edit 3542 r/to  
+    Expected: Since "to" is not a valid reminder command, the task with index 3542 will not be edited,
+     and an error message is shown. 
 
 ### Saving data
 
@@ -397,3 +450,6 @@ After adding some tasks to the list, exit the program using the “bye” comman
 Reopen the program using the jar file and list all tasks using the list command.
 Expected: All pre-existing tasks before the most recent program exit 
 should be displayed in the list.
+
+<!-- @@author -->
+

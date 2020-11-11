@@ -11,7 +11,9 @@ import java.time.LocalTime;
 
 import static java.lang.Math.pow;
 
-
+/**
+ * The class for a single task.
+ */
 public class Task {
     // MAX_NUM_TASKS = 10000
     private static final int HASH_VALUE_DIGITS = 4;
@@ -25,7 +27,7 @@ public class Task {
 
     public Task(String description, String dateString, String startTime, String endTime, String priorityString,
                 String reminderString, String reminderTimeString)
-        throws InvalidPriorityException, InvalidDatetimeException, InvalidReminderException {
+            throws InvalidPriorityException, InvalidDatetimeException, InvalidReminderException {
         this.description = description;
         date = Util.dateStringToDate(dateString);
         this.startTime = Util.timeStringToTime(startTime);
@@ -49,7 +51,7 @@ public class Task {
 
     public Task(String description, LocalDate date,
                 LocalTime startTime, LocalTime endTime, Priority priority)
-        throws InvalidDatetimeException, InvalidReminderException {
+            throws InvalidDatetimeException, InvalidReminderException {
         this.description = description;
         this.date = date;
         this.startTime = startTime;
@@ -63,7 +65,7 @@ public class Task {
     public Task(String taskID, String description, String dateString,
                 String startTime, String endTime, String priorityString, String reminderString,
                 String reminderTimeString)
-        throws InvalidPriorityException, InvalidDatetimeException, InvalidReminderException {
+            throws InvalidPriorityException, InvalidDatetimeException, InvalidReminderException {
         this.description = description;
         date = Util.dateStringToDate(dateString);
         this.startTime = Util.timeStringToTime(startTime);
@@ -100,6 +102,11 @@ public class Task {
         }
     }
 
+    /**
+     * Returns the reminder string.
+     *
+     * @return Yes/No string depending on whether task has a reminder
+     */
     public String getReminderString() {
         if (reminder.getIsOn()) {
             return "Yes";
@@ -108,14 +115,32 @@ public class Task {
         }
     }
 
+    /**
+     * creates a new reminder for the task.
+     *
+     * @return the new reminder created
+     */
     public Reminder newReminder() {
         return new Reminder();
     }
 
+    /**
+     * gets the already existing reminder for the task.
+     *
+     * @return the reminder object for the task
+     */
     public Reminder getReminder() {
         return reminder;
     }
 
+    /**
+     * sets reminder for the task.
+     *
+     * @param reminderString the user input, which is either on or off
+     * @param reminderTime   the time the reminder is set to
+     * @throws InvalidReminderException reminder format is wrong.
+     * @throws InvalidDatetimeException date/time is in an invalid format
+     */
     public void setReminder(String reminderString, String reminderTime)
             throws InvalidReminderException, InvalidDatetimeException {
         initiateReminder(reminderString, reminderTime);

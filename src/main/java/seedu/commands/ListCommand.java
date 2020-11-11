@@ -48,7 +48,7 @@ public class ListCommand extends ReadOnlyCommand {
      * Displays what the user is looking for.
      *
      * @param tasks TaskMap of all the tasks in the list.
-     * @return CommandResult object.
+     * @return CommandResult object with the list message.
      */
     public CommandResult execute(TaskMap tasks) {
         assert !(dateFlag && priorityFlag);

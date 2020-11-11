@@ -44,7 +44,7 @@ public class DeleteCommand extends ModificationCommand {
         }
         Task taskDeleted = task;
         tasks.delete(key);
-        model.pushAndUpdate(tasks);
+        model.pushCurrentStackAndUpdate(tasks);
         return new CommandResult(DELETE_MESSAGE,taskDeleted);
     }
 }

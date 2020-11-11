@@ -56,6 +56,7 @@ class AddCommandTest {
         }
     }
 
+
     @Test
     public void addCommand_wrongPriorityFormat() {
         final String[] invalidInputs = {"", " ", "1231242345", "&*^%*&^", "abc"};

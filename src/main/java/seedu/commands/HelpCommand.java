@@ -11,7 +11,7 @@ public class HelpCommand extends GeneralCommand {
     /**
      * Prints list of commands for user.
      *
-     * @return CommandResult object.
+     * @return CommandResult object with the help message.
      */
     public CommandResult execute() {
         return new CommandResult(HELP_MESSAGE);

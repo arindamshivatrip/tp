@@ -43,37 +43,39 @@ public class Messages {
     public static final String HELP_MESSAGE = HELP_BORDER + LS
             + HELP_BORDER_SPACE + LS
             + HELP_PREFIX + "List of available commands:" + padString(' ', 84) + "||" + LS
-            + HELP_PREFIX + "Note:" + padString(' ', 106) + "||" + LS
-            + HELP_PREFIX + "1. Square bracket input is optional." + padString(' ', 75) + "||" + LS
+            + HELP_PREFIX + "Note: Square bracket input is optional." + padString(' ', 72) + "||" + LS
             + HELP_PREFIX + "- help: show list of available commands" + padString(' ', 72) + "||" + LS
-            + HELP_PREFIX + "format: " + ANSI_BRIGHT_GREEN + "help" + ANSI_RESET + padString(' ', 99)
+            + HELP_PREFIX + "  format: " + ANSI_BRIGHT_GREEN + "help" + ANSI_RESET + padString(' ', 97)
             + "||" + LS + HELP_PREFIX + "- add: add a task" + padString(' ', 94) + "||" + LS
-            + HELP_PREFIX + "format: " + ANSI_BRIGHT_GREEN
+            + HELP_PREFIX + "  format: " + ANSI_BRIGHT_GREEN
             + "add DESCRIPTION [d/dd-MM-yyyy] [st/HHmm] [et/HHmm] [p/NUMBER] [r/(ON/OFF)] [t-HHmm]"
-            + ANSI_RESET + "                    ||" + LS
+            + ANSI_RESET + "                  ||" + LS
             + HELP_PREFIX + "- edit: edit a task" + padString(' ', 92) + "||" + LS
-            + HELP_PREFIX + "format: " + ANSI_BRIGHT_GREEN
+            + HELP_PREFIX + "  format: " + ANSI_BRIGHT_GREEN
             + "edit INDEX [des/DESCRIPTION] [d/dd-MM-yyyy] [st/HHmm] [et/HHmm] [p/NUMBER] [r/(ON/OFF)] [t-HHmm]"
-            + ANSI_RESET + "       ||" + LS
+            + ANSI_RESET + "     ||" + LS
             + HELP_PREFIX + "- list: show list of tasks" + padString(' ', 85) + "||" + LS
-            + HELP_PREFIX + "format: " + ANSI_BRIGHT_GREEN + "list [-d|-p|-w|-m|d/DATE]" + ANSI_RESET
-            + padString(' ', 78) + "||" + LS
+            + HELP_PREFIX + "  format: " + ANSI_BRIGHT_GREEN + "list [-d|-p|-w|-m|d/DATE]" + ANSI_RESET
+            + padString(' ', 76) + "||" + LS
             + HELP_PREFIX + "- search: find task(s) with keyword in description"
             + padString(' ', 61) + "||" + LS
-            + HELP_PREFIX + "format: " + ANSI_BRIGHT_GREEN + "search KEYWORD(S)" + ANSI_RESET
-            + padString(' ', 86) + "||" + LS
+            + HELP_PREFIX + "  format: " + ANSI_BRIGHT_GREEN + "search KEYWORD(S)" + ANSI_RESET
+            + padString(' ', 84) + "||" + LS
             + HELP_PREFIX + "- delete remove particular task by index" + padString(' ', 71) + "||" + LS
-            + HELP_PREFIX + "format: " + ANSI_BRIGHT_GREEN + "delete INDEX" + ANSI_RESET
-            + padString(' ', 91) + "||" + LS
+            + HELP_PREFIX + "  format: " + ANSI_BRIGHT_GREEN + "delete INDEX" + ANSI_RESET
+            + padString(' ', 89) + "||" + LS
             + HELP_PREFIX + "- clear: remove all tasks" + padString(' ', 86) + "||" + LS
-            + HELP_PREFIX + "format: " + ANSI_BRIGHT_GREEN + "clear" + ANSI_RESET + padString(' ', 98)
+            + HELP_PREFIX + "  format: " + ANSI_BRIGHT_GREEN + "clear" + ANSI_RESET + padString(' ', 96)
             + "||" + LS
             + HELP_PREFIX + "- undo: revert modifications commands like add, edit, delete"
             + padString(' ', 51) + "||" + LS
-            + HELP_PREFIX + "format: " + ANSI_BRIGHT_GREEN + "undo" + ANSI_RESET + padString(' ', 99)
+            + HELP_PREFIX + "  format: " + ANSI_BRIGHT_GREEN + "undo" + ANSI_RESET + padString(' ', 97)
             + "||" + LS
+            + HELP_PREFIX + "- redo: restore undone actions" + padString(' ', 81) + "||" + LS
+            + HELP_PREFIX + "  format: " + ANSI_BRIGHT_GREEN + "redo" + ANSI_RESET
+            + padString(' ', 97) + "||" + LS
             + HELP_PREFIX + "- bye: exit the program" + padString(' ', 88) + "||" + LS
-            + HELP_PREFIX + "format: " + ANSI_BRIGHT_GREEN + "bye" + ANSI_RESET + padString(' ', 100)
+            + HELP_PREFIX + "  format: " + ANSI_BRIGHT_GREEN + "bye" + ANSI_RESET + padString(' ', 98)
             + "||" + LS + HELP_BORDER_SPACE + LS
             + HELP_BORDER + LS;
 
@@ -90,6 +92,8 @@ public class Messages {
     public static final String NO_PREV_MODIFICATION = "There's nothing to undo.";
     public static final String UNDO_MESSAGE = "Previous modification has been undone.";
     public static final String REMINDER_MESSAGE = "Reminder, you have an upcoming task: ";
+    public static final String NO_PREV_MODIFICATION_REDO = "There's nothing to redo.";
+    public static final String REDO_MESSAGE = "Previous modification has been restored.";
 
     private static String padString(char letter, int length) {
         return Util.generatePadStringWithCharAndLength(letter, length);

@@ -13,7 +13,8 @@
     - [Searching task](#searching-relevant-tasks--search)
     - [Removing task](#removing-a-task--delete)
     - [Clearing task](#clearing-tasks--clear)
-    - [Reverting command](#reverting-command--undo)
+    - [Undo](#undo--undo)
+    - [Redo](#redo--redo)
     - [Exiting program](#exiting-program--bye)
 - [FAQ](#faq)
 - [Java 11 Installation Guide](#java-11-installation-guide)
@@ -64,7 +65,7 @@ and press `Enter`.
 
     `reg add HKCU\Console /v VirtualTerminalLevel /t REG_DWORD /d 1`
     
-4. Download the latest "planus.jar" from [here](https://github.com/AY2021S1-CS2113T-W12-1/tp/releases/tag/v2.0).
+4. Download the latest "planus.jar" from [here](https://github.com/AY2021S1-CS2113T-W12-1/tp/releases/tag/v2.1).
     
 5. Open a **new** command prompt in the folder where "planus.jar" is located at.
 For Windows user, you can do so by going to the folder in file explorer,
@@ -132,7 +133,7 @@ Format: `help`
 
 Expected outcome:
 
-![help_command](images/Help_command.png)
+![help_command](images/help.PNG)
 
 *Figure 3. A list of available commands and their formats will be displayed.*
 
@@ -314,21 +315,37 @@ Expected outcome:
 *Figure 19. The task that was deleted will be displayed.*
 
 
-### Reverting command : `undo`
+### Undo : `undo`
 
-Reverts modification commands and display a message.
-You can undo until the tasks are the same as current session starts with.
-
-List of modification commands:
-`add`, `edit`, `delete`, `clear`
+Undo the previous action and display a message.
+Only modification commands can be undone: `add`, `edit`, `delete`, `clear`
+You can undo until the data is the same as what the current session started with.
 
 Format: `undo`
 
 Expected outcome:
 
-![undo](images/undo.PNG)
+In this case, the previous action is `add CG2028 final quiz d/11-10-2020 st/1600 et/1700 p/3`.
 
-*Figure 20. Demonstration for undo.*
+![undo](images/undo.png)
+
+*Figure 20. List of tasks before and after the undo command.*
+
+
+### Redo : `redo`
+
+Reverse the undo command and restore the previous action.
+This command can only be executed if at least one action has been undone.
+
+Format: `redo`
+
+Expected outcome:
+
+In this case, the previous action `add CG2028 final quiz d/11-10-2020 st/1600 et/1700 p/3` was undone.
+
+![redo](images/redo.png)
+
+*Figure 21. List of tasks before and after the redo command.*
 
 
 ### Exiting program : `bye`
@@ -341,7 +358,7 @@ Expected outcome:
 
 ![bye](images/bye.png)
 
-*Figure 21. Exit message.*
+*Figure 22. Exit message.*
 
 
 ### Saving data to file

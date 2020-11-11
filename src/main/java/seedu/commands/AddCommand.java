@@ -91,7 +91,7 @@ public class AddCommand extends ModificationCommand {
         task.setTaskID(taskID);
         tasks.addTask(task);
         // update stack
-        model.pushAndUpdate(tasks);
+        model.pushCurrentStackAndUpdate(tasks);
         return new CommandResult(ADD_MESSAGE, task);
     }
 }

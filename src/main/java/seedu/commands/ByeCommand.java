@@ -9,7 +9,7 @@ public class ByeCommand extends GeneralCommand {
 
     /**
      * Exits the program & prints bye message.
-     * @return CommandsResult object.
+     * @return CommandsResult object with the bye message.
      */
     public CommandResult execute() {
         CommandResult result = new CommandResult(BYE_MESSAGE);

@@ -9,9 +9,9 @@ import seedu.commands.DeleteCommand;
 import seedu.commands.EditCommand;
 import seedu.commands.HelpCommand;
 import seedu.commands.ListCommand;
+import seedu.commands.RedoCommand;
 import seedu.commands.SearchCommand;
 import seedu.commands.UndoCommand;
-
 import seedu.exceptions.InvalidCommandException;
 import seedu.exceptions.InvalidFormatException;
 import seedu.exceptions.InvalidTaskNumberException;
@@ -21,7 +21,15 @@ import java.util.regex.Matcher;
 
 public class Parser {
 
-
+    /**
+     * Parses the raw user input to make sense of what was inputed.
+     *
+     * @param rawInput the raw user input
+     * @return the command to be executed
+     * @throws UnknownCommandException    the the method can't make sense of the input, default case
+     * @throws InvalidCommandException    if input format is wrong
+     * @throws InvalidTaskNumberException for edit/delete, if task index is wrong
+     */
     public Command processRaw(String rawInput) throws
             UnknownCommandException, InvalidCommandException, InvalidTaskNumberException, InvalidFormatException {
         Matcher matcher;
@@ -79,11 +87,20 @@ public class Parser {
             }
         case UndoCommand.COMMAND_WORD:
             return new UndoCommand();
+        case RedoCommand.COMMAND_WORD:
+            return new RedoCommand();
         default:
             throw new UnknownCommandException();
+
         }
     }
 
+    /**
+     * Gets the command word from the raw input.
+     *
+     * @param rawInput the user input
+     * @return the command word. e.g add/edit/delete
+     */
     public String getCommandWord(String rawInput) {
         String commandWord = rawInput;
         if (rawInput.contains(" ")) {
@@ -93,6 +110,12 @@ public class Parser {
         return commandWord.trim();
     }
 
+    /**
+     * Gets everything after the command word.
+     *
+     * @param rawInput the user input
+     * @return the string after the command word
+     */
     public String getCommandArgs(String rawInput) {
         String commandArgs = "";
         if (rawInput.contains(" ")) {

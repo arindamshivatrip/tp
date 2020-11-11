@@ -39,6 +39,12 @@ Task "1"-"1" Priority: priority
 Task --"0..2" LocalTime
 
 
+Reminder --- Task
+
+class Reminder {
+    +timer : Timer
+    +time : LocalTime
+}
 
 
 interface Comparator<Task>

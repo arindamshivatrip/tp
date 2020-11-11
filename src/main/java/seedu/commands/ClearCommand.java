@@ -13,13 +13,13 @@ public class ClearCommand extends ModificationCommand {
     /**
      * Clears the current list of all tasks and updates the stack.
      * @param model contains TaskMap and stack.
-     * @return CommandResult object.
+     * @return CommandResult object with the clear message.
      */
     public CommandResult execute(Model model) {
         TaskMap tasks = model.getTaskMap();
         tasks.clear();
         Timers.cancel();
-        model.pushAndUpdate(tasks);
+        model.pushCurrentStackAndUpdate(tasks);
         return new CommandResult(CLEAR_MESSAGE);
     }
 }
