@@ -26,6 +26,7 @@
 </div>
 
 ## What is PlaNUS
+(ZHI LIN)
 PlaNUS is a desktop application for NUS students to manage their tasks and schedule.
 With this system, you can add your upcoming tasks into the list, and then display
 them in a table view or in a calendar view, so that you may easily see and plan your
@@ -43,6 +44,7 @@ This is what **PlaNUS** looks like:
 </div>
 
 ## About this document
+(ZHI LIN)
 This user guide is a document aiming to help users in understanding the features
 provided by PlaNUS and the instructions required for each step.
 
@@ -316,6 +318,7 @@ Expected outcome:
 
 
 ### Undo : `undo`
+(ZHI LIN)
 
 Undo the previous action and display a message.
 Only modification commands can be undone: `add`, `edit`, `delete`, `clear`
@@ -333,6 +336,7 @@ In this case, the previous action is `add CG2028 final quiz d/11-10-2020 st/1600
 
 
 ### Redo : `redo`
+(ZHI LIN)
 
 Reverse the undo command and restore the previous action.
 This command can only be executed if at least one action has been undone.
@@ -392,6 +396,7 @@ If the version is not correct, go [here](#java-11-installation-guide).
 </div>
 
 ## Java 11 Installation Guide
+(ZHI LIN)
 
 1. Click [here](https://docs.aws.amazon.com/corretto/latest/corretto-11-ug/downloads-list.html) to go to the
 download page for Java 11 JDK. Click on the download link with **zip file** corresponding to your operating system.

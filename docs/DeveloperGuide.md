@@ -151,6 +151,7 @@ and these classes are stored in the seedu.commons package.
 
 
 ## Product scope
+(ZHI LIN)
 
 ### Target user profile
 
@@ -167,6 +168,7 @@ and these classes are stored in the seedu.commons package.
 
 
 ## User Stories
+(TIM)
 
 |Version| As a ... | I want to ... | So that I can ...|
 |--------|----------|---------------|------------------|
@@ -184,6 +186,7 @@ and these classes are stored in the seedu.commons package.
 |v2.0|Busy student|View my timetable with my tasks|I know when I have to attend lecture.|
 
 ## Use cases
+(TIM)
 
 ### Use case: Add task
 
